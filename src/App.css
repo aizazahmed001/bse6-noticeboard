@@ -1,0 +1,287 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.app-header {
+  background: #1e3a5f;
+  color: white;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 12px;
+  opacity: 0.7;
+  display: block;
+  margin-top: 2px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-email {
+  font-size: 13px;
+  background: rgba(255,255,255,0.15);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.not-signed-in {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* ── Layout ── */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 18px;
+}
+
+/* ── Auth Panel ── */
+.auth-panel {
+  margin-top: 24px;
+}
+
+.auth-container {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  max-width: 420px;
+}
+
+.auth-container h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #1e3a5f;
+}
+
+/* ── Forms ── */
+.auth-form,
+.notice-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #1e3a5f;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Buttons ── */
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  font-family: inherit;
+}
+
+.btn:hover { opacity: 0.88; }
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.btn-primary  { background: #1e3a5f; color: white; }
+.btn-secondary{ background: #e2e8f0; color: #1a202c; }
+.btn-danger   { background: #fee2e2; color: #991b1b; font-size: 13px; padding: 6px 12px; }
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #1e3a5f;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.auth-toggle {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+/* ── Messages ── */
+.error-msg   { color: #991b1b; background: #fee2e2; padding: 8px 12px; border-radius: 6px; font-size: 13px; }
+.success-msg { color: #065f46; background: #d1fae5; padding: 8px 12px; border-radius: 6px; font-size: 13px; }
+.status-msg  { text-align: center; color: #6b7280; padding: 40px 0; font-size: 15px; }
+
+/* ── Notice Board ── */
+.noticeboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Notice Form Container ── */
+.notice-form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  border-left: 4px solid #1e3a5f;
+}
+
+.notice-form-container h2 {
+  font-size: 17px;
+  margin-bottom: 16px;
+  color: #1e3a5f;
+}
+
+/* ── Category Filter ── */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 20px;
+  background: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.filter-btn:hover  { border-color: #1e3a5f; color: #1e3a5f; }
+.filter-btn.active { background: #1e3a5f; color: white; border-color: #1e3a5f; }
+
+/* ── Notice Cards ── */
+.notices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.notice-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s;
+}
+
+.notice-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.notice-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.category-badge {
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.notice-time {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-left: auto;
+}
+
+.notice-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.notice-body {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.notice-actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .app-header { padding: 12px 16px; flex-direction: column; gap: 10px; }
+  .form-row { grid-template-columns: 1fr; }
+  .app { padding: 16px 10px; }
+}
